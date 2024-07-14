@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+.main-content{
+    max-width: 800px; /* Ajusta el ancho máximo del contenido principal */
+    margin: 50px auto; /* Centra el contenido y aplica margen superior e inferior */
+    padding: 20px;
+    background-color: #000000; /* Color de fondo del contenido principal */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.container {
+    width: 80%;
+    margin: 10% auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+form {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+h2 {
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #000000;
+    color: white;
+    padding: 10px;
+    border: 1px solid #000000;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+li h3 {
+    margin: 0;
+    color: #007bff;
+}
+
+li p {
+    color: #ffffff;
+}
+
+li a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+li a:hover {
+    text-decoration: underline;
+}

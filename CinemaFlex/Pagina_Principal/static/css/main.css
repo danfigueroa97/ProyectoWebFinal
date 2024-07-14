@@ -1,0 +1,32 @@
+.slideshow {
+    position: relative;
+    z-index: 1;
+}
+.slideshow img {
+    width: 103%;
+    height: 26vw;
+    display: block; /* Asegura que la imagen se ajuste correctamente */
+    margin: 0px; 
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.2;
+}
+.box_text p {
+    font-size: 13px;
+    margin-bottom: 1px;
+    margin-left: 45px;
+    margin-right: 45px;
+    text-align: center;
+}
+.redes_sociales a {
+    color: #007bff;
+    text-decoration: none;
+}
+.redes_sociales a:hover {
+    text-decoration: underline;
+}

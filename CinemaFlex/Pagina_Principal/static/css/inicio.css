@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'Monserrat-Light';
+    src: url('../Fuentes/static/Montserrat-Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Monserrat-Bold';
+    src: url('../Fuentes/static/Montserrat-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Monserrat-Medium';
+    src: url('../Fuentes/static/Montserrat-Medium.ttf') format('truetype');
+}
+
+.imagenes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: "Monserrat-Light";
+    position: relative;
+    margin: 0.9vw;
+}
+
+.imagenes figure {
+    margin: 0.1vw;
+    padding: 0.5vw;
+    margin-bottom: 1vw;
+}
+
+.imagenes figure:hover {
+    transition: transform 0.2s ease;
+    transform: translate(0%, 0%) scale(1.05);
+    background-color: rgb(255, 243, 227);
+    transform-origin: center;
+}
+
+.imagenes figure:not(:hover) {
+    transition: transform 0.3s ease;
+}
+
+.imagenes figure img {
+    width: 18vw;
+    height: auto;
+    object-fit: cover;
+    margin: 0.2w;
+}
+
+.movie_title {
+    font-family: "Monserrat-bold";
+    text-align: center;
+    padding: 0%;
+    margin: 0%;
+    word-wrap: break-word; /* Rompe palabras largas */
+    overflow-wrap: break-word;
+}
+
+.movie_descripcion {
+    font-family: "Monserrat-light";
+    text-align: center;
+    padding: 0.2vw;
+    margin: 0%;
+
+}
+
+.sobre {
+    text-decoration: none;
+    /* Quita el subrayado */
+    color: inherit;
+    /* Utiliza el color heredado del elemento padre */
+}
+
+.sobre:hover {
+    text-decoration: none;
+    /* Asegúrate de que no haya subrayado al hacer hover */
+    color: inherit;
+    /* Mantén el color heredado al hacer hover */
+}

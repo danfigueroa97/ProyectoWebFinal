@@ -1,0 +1,105 @@
+
+
+
+/* Estilos Generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f5e6;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+/* Estilos de la Tabla */
+#tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#tabla th, #tabla td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+#tabla th {
+    background-color: #f392bd;
+    color: #fff;
+}
+
+/* Estilos de los Botones */
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button-container a {
+    text-decoration: none;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    margin-right: 10px;
+}
+
+.button-container .clase {
+    background-color: #78c7c7;
+    color: #fff;
+}
+
+.button-container .clase:hover {
+    background-color: #5a5a5a;
+}
+
+.button-container .clase2 {
+    background-color: #ffb347;
+    color: #fff;
+}
+
+.button-container .clase2:hover {
+    background-color: #ff9800;
+}
+
+.button-container .clase3 {
+    background-color: #dcb4c8;
+    color: #fff;
+}
+
+.button-container .clase3:hover {
+    background-color: #b38094;
+}
+button[type="submit"],
+.back-btn {
+    background-color: #4CAF50; /* Color de fondo verde por defecto */
+    color: white; /* Color del texto */
+    padding: 10px 15px; /* Espaciado interno ajustado para el botón de guardar cambios */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Borde redondeado */
+    cursor: pointer; /* Cambio de cursor al pasar el ratón */
+    text-decoration: none; /* Sin subrayado de enlace */
+    display: inline-block; /* Mostrar como bloque en línea */
+    transition: background-color 0.3s; /* Transición de color de fondo */
+    margin-right: 10px; /* Espacio entre botones */
+}
+
+/* Hover para botones */
+button[type="submit"]:hover,
+.back-btn:hover {
+    background-color: #45a049; /* Cambio de color de fondo al pasar el ratón */
+}

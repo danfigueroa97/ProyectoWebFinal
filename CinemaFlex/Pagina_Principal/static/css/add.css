@@ -1,0 +1,78 @@
+:root {
+    --primary-color: #337ab7;
+    --secondary-color: #23527c;
+    --background-color: #f9f9f9;
+    --border-color: #ddd;
+    --padding: 20px;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+  }
+  
+  h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: var(--padding);
+  }
+  
+  form {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: var(--padding);
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: var(--padding);
+  }
+  
+  input, textarea {
+    width: 100%;
+    margin-bottom: var(--padding);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+  }
+  
+  input:focus, textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  button[type="submit"] {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: var(--padding);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  a {
+    text-decoration: none;
+    font-weight: bolder;
+    color: var(--primary-color);
+  }
+  
+  .volver {
+    float: left;
+    margin-left: 0;
+  }
+  
+  a:hover {
+    color: var(--secondary-color);
+  }
+  
+  textarea {
+    resize: vertical;
+    overflow-y: auto;
+  }

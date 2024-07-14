@@ -1,0 +1,74 @@
+/* static/css/crud_forms.css */
+
+/* Estilo para el formulario */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+/* Estilo para los campos */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+/* Estilo para el título */
+.titulo {
+    text-align: center; /* Centrar el texto */
+    margin-top: 20px; /* Espacio superior */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+/* Estilo para el botón */
+button[type="submit"],
+.back-btn {
+    background-color: #4CAF50; /* Color de fondo verde por defecto */
+    color: white; /* Color del texto */
+    padding: 10px 15px; /* Espaciado interno ajustado para el botón de guardar cambios */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Borde redondeado */
+    cursor: pointer; /* Cambio de cursor al pasar el ratón */
+    text-decoration: none; /* Sin subrayado de enlace */
+    display: inline-block; /* Mostrar como bloque en línea */
+    transition: background-color 0.3s; /* Transición de color de fondo */
+    margin-right: 10px; /* Espacio entre botones */
+}
+
+/* Hover para botones */
+button[type="submit"]:hover,
+.back-btn:hover {
+    background-color: #45a049; /* Cambio de color de fondo al pasar el ratón */
+}
+
+
+/* Estilo para mensajes de error */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f5e6;
+}
