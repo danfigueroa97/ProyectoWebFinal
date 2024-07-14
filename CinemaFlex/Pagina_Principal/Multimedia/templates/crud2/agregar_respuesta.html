@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Respuesta</title>
+    <link rel="stylesheet" href="{% static 'css/crud3.css' %}">
+</head>
+<body>
+    <div class="button-container">
+    <div class="content>">
+    <h1 class = "titulo">Agregar Respuesta al comentario {{comentario.texto}}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Agregar</button>
+        <a href="{% url 'crud2' %}" class="back-btn">Volver a la lista</a>
+    </div>
+    </form>
+
+    </div>
+</body>
+</html>
+

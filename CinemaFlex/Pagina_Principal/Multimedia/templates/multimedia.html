@@ -1,0 +1,86 @@
+{% extends 'navbar.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+{% block extrahead %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/multimedia.css' %}">
+    <link rel="stylesheet" href="{% static '/css/contenido.css' %}">
+    
+
+</head>
+{% endblock extrahead%}
+
+<body>
+    {% block content %}
+    <div class="content">
+        <div class="multimedia">
+            <img class="multimedia-image" src="{{ multimedia.Imagen.url }}" alt="Imagen multimedia">
+            <div class="multimedia-info">
+                <h2 class="multimedia-name">{{multimedia.Nombre}}</h2>
+                <p class="multimedia-description">{{multimedia.Descripcion}}</p>
+                <a href="{{multimedia.Link}}" class="play-button" target="_blank">PLAY</a>
+
+                {% if user.is_authenticated %}
+                {% if multimedia in user.userlist_set.all %}
+                <form method="post" action="{% url 'remove_from_list' multimedia.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-remove">Eliminar de Mi Lista</button>
+                </form>
+                {% else %}
+                <form method="post" action="{% url 'add_to_list' multimedia.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-add">Añadir a Mi Lista</button>
+                </form>
+                {% endif %}
+                {% endif %}
+                
+                {% if user.is_authenticated %}
+                <form method="post" action="{% url 'multimedia' multimedia.id %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-remove">Agregar Comentario</button>
+                </form>
+                {% else %}
+                <p>Debes iniciar sesión para dejar un comentario.</p>
+                {% endif %}
+
+                {% if comentarios %}
+                <h3>Comentarios:</h3>
+                <ul>
+                    {% for comentario in comentarios %}
+                    <li>
+                        <strong>{{ comentario.usuario.username }}</strong> - {{ comentario.texto }}
+                        {% if request.user == comentario.usuario or request.user.is_superuser %}
+                        <form method="post" action="{% url 'borrar_comentario' comentario.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-remove">Borrar</button>
+                        </form>
+                        {% endif %}
+
+                        {% if comentario.respuestas.all %}
+                        <ul>
+                            {% for respuesta in comentario.respuestas.all %}
+                            <li>{{ respuesta.contenido }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>No hay comentarios aún.</p>
+                {% endif %}
+                
+            </div>
+        </div>
+        <br><br><br>
+    </div>
+    {% endblock content%}
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% block extrahead %}
+
+<style>
+    /* Estilos generales */
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f5e6;
+    }
+
+    .content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    /* Estilos de la tabla */
+    #tabla {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    #tabla th, #tabla td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    #tabla th {
+        background-color: #f392bd;
+        color: #fff;
+    }
+
+    /* Estilos de los botones */
+    button {
+        background-color: #78c7c7;
+        color: #fff;
+        padding: 8px;
+        border: none;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+
+    /* Clases específicas para cada tipo de botón */
+    .clase2 {
+        background-color: #ffb347;
+    }
+
+    .clase3 {
+        background-color: #dcb4c8;
+    }
+
+    button:hover {
+        background-color: #5a5a5a;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/contenido.css' %}">
+
+</head>
+{% endblock extrahead%}
+
+<body>
+
+    {% block content %}
+    <div class="content">
+        <h1>Multimedia</h1>
+        <br>
+        <button class="nuevo" onclick="redirectToView()">Nuevo Multimedia</button>
+        <script>
+            function redirectToView() {
+                window.location.href = "{% url 'nuevo' %}";
+            }
+        </script>
+
+        <table id="tabla">
+            <tr>
+                <th>NOMBRE</th>
+                <th>DESCRIPCION</th>
+                <th>ACCIONES</th>
+            </tr>
+
+            {% for pro in multimedia %}
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    nuevaFila("{{pro.Nombre}}", "{{pro.Descripcion}}", "{{pro.id}}");
+                });
+            </script>
+            {% endfor %}
+
+        </table>
+
+        <script>
+            function nuevaFila(Nombre, Descripcion, proId) {
+                let table = document.getElementById("tabla");
+                let row = table.insertRow(-1);
+                let c1 = row.insertCell(0);
+                let c2 = row.insertCell(1);
+                let c4 = row.insertCell(2);
+
+                c1.innerText = Nombre;
+                c2.innerText = Descripcion;
+
+                let button = document.createElement("button");
+                button.innerText = "Ver ";
+                button.className = "clase"
+                c4.appendChild(button);
+                button.onclick = function () {
+
+                    redirigirNota2(proId);
+                };
+
+                let button2 = document.createElement("button");
+                button2.innerText = "Editar ";
+                button2.className = "clase2"
+                button2.onclick = function () {
+
+                    redirigirNota(proId);
+                };
+                c4.appendChild(button2);
+
+                let button3 = document.createElement("button");
+                button3.innerText = "Borrar ";
+                button3.className = "clase3"
+                button3.onclick = function () {
+                    redirigirNota3(proId);
+                };
+
+                c4.appendChild(button3);
+
+
+                function redirigirNota(proId) {
+                    let url = `/editar/${proId}`;
+                    window.location.href = url;
+                }
+
+                function redirigirNota2(proId) {
+                    let url = `/ver/${proId}`;
+                    window.location.href = url;
+                }
+
+                function redirigirNota3(proId) {
+                    let url = `/borrar/${proId}`;
+                    window.location.href = url;
+                }
+            }
+        </script>
+    </div>
+    {% endblock content%}
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% block extrahead %}
+<style>
+    /* Estilos generales */
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f5e6;
+        /* Tono entre blanco y amarillo muy suave */
+    }
+
+    .content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        /* Fondo blanco */
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        /* Sutil sombra */
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    h2 {
+        color: #5a5a5a;
+        /* Gris oscuro */
+    }
+
+    h3 {
+        color: #78c7c7;
+        /* Verde pastel */
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 20px;
+        border-radius: 8px;
+    }
+    
+
+    /* Estilos de espaciado y separación */
+    br {
+        margin-bottom: 10px;
+    }
+
+    /* Enlace de regreso */
+    a {
+        color: #78c7c7;
+        /* Verde pastel */
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/contenido.css' %}">
+</head>
+{% endblock extrahead%}
+
+<body>
+
+    {% block content %}
+    <div class="content">
+        <h1>Multimedia</h1>
+        <br><br>
+
+        <h2>Nombre: <span style="color: brown;"> {{multimedia.Nombre}}</span></h2>
+
+        <h2>Descripcion: <span style="color: brown;"> {{multimedia.Descripcion}}</span></h2>
+
+        <img width="400" height="240" src="{{ multimedia.Imagen.url }}" alt="prenda3">
+    </div>
+
+    {% endblock content%}
+</body>
+
+</html>

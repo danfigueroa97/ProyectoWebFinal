@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <title>Editar Usuario</title>
+</head>
+<body>
+
+{% block content %}
+<div class="content">
+    <h1 class="titulo">Editar Usuario</h1>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="button-container">
+            <button type="submit">Guardar Cambios</button>
+            <a href="{% url 'verUser' %}" class="back-btn">Volver a la Lista</a>
+        </div>
+    </form>
+</div>
+{% endblock content %}
+
+</body>
+</html>

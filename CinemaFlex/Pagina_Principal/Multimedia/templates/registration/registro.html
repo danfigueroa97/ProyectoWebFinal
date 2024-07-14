@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+    <title>Registrarse</title>
+</head>
+
+<body>
+
+    <div class="bg-image">
+        <div class="signup-container">
+            <h1>Registro</h1>
+            <h2>Peliculas y series ilimitadas</h2>
+
+            <div>
+                <style>
+                    h5 {
+                        color: blue;
+                    }
+                </style>
+                {% for message in messages %}
+                {% if message.tags == 'error' %}
+                <h5>{{message}}</h5>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_email">Email:</label>
+                    {{ register_form.email }}
+                </div>
+                <div class="form-group">
+                    <label for="id_username">Usuario:</label>
+                    {{ register_form.username }}
+                </div>
+                <div class="form-group">
+                    <label for="id_password1">Contraseña:</label>
+                    {{ register_form.password1 }}
+                </div>
+                <div class="form-group">
+                    <label for="id_password2">Repetir contraseña:</label>
+                    {{ register_form.password2 }}
+                </div>
+                <button style="color:white" type="submit" class="signup-btn">Crear</button>
+            </form>
+            <div class="help-text" align="center">
+                <span>¿Listo para ver?. Crear una cuenta</span><br>
+                <span>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Login</a></span><br>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

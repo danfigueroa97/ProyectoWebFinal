@@ -1,0 +1,41 @@
+{% extends 'navbar.html' %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="es">
+{% block extrahead %}
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/main.css' %}">
+    <link rel="stylesheet" href="{% static '/css/contenido.css' %}">
+
+</head>
+{% endblock extrahead%}
+
+<body>
+    {% block content %}
+    <div class="content">
+        <div class="slideshow">
+            <img src="{% static '/img/index/background6.jpg' %}" id="img_index" alt="Error cargando Imagen">
+        </div>
+        <div class="box_text">
+            <P> Descubre un universo lleno de emociones, aventuras y entretenimiento con CinemaFlex. Nuestra plataforma
+                te ofrece una selección incomparable de películas y series para todos los gustos y edades. Desde los clásicos que
+                han marcado generaciones hasta los últimos estrenos que todos están comentando, CinemaFlex es el lugar
+                perfecto para los amantes del cine.</P>
+        </div>
+        <div class="redes_sociales">
+            <div class="iconos_redes_sociales">
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </div>
+    {% endblock content%}
+</body>
+</html>

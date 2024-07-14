@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static '/css/crud3.css' %}">
+        <title>Detalles</title>
+    </head>
+    <body>
+
+{% block content %}
+<div class="content">
+    <h1>Lista de Usuarios</h1>
+
+    <table id="tabla">
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Acciones</th>
+        </tr>
+
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{ usuario.username }}</td>
+            <td>{{ usuario.email }}</td>
+            <td class="button-container">
+                <a href="{% url 'detallesUser' usuario.id %}">
+                    <button class="clase">Ver</button>
+                </a>
+                <a href="{% url 'updateUser' usuario.id %}">
+                    <button class="clase2">Editar</button>
+                </a>
+                <a href="{% url 'deleteUser' usuario.id %}">
+                    <button class="clase3">Eliminar</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+{% endblock content %}
+
+</body>
+</html>

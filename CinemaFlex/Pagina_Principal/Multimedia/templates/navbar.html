@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+    {% block extrahead %}
+    {% endblock extrahead%}
+</head>
+
+<body>
+    <div class="menu">
+        <input type="checkbox" id="toggle-menu">
+        <label for="toggle-menu" class="icon">&#9776;</label>
+        <ul class="menu_li">
+            <a class="logo" href="{% url 'main' %}">CinemaFlex</a>
+            <li><a href="{% url 'inicio' %}">Inicio</a></li>
+            <li><a href="{% url 'peliculas' %}">Peliculas</a></li>
+            <li><a href="{% url 'series' %}">Series</a></li>
+            <li><a href="{% url 'buscar_multimedia' %}">Buscar</a></li>
+
+            {% if user.is_authenticated %}
+            <li>
+                <div class="dropdown">
+                    <a class="login" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ user.username }}
+                    </a>
+                    <ul class="menuVertical" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="{% url 'mi_lista' %}">Mi Lista</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="logout()">Cerrar sesión</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            {% else %}
+            <li><a class="login" href="{% url 'login' %}">Iniciar sesion</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <form id="logout-form" method="post" action="{% url 'logout' %}" style="display: none;">
+        {% csrf_token %}
+    </form>
+
+    <script>
+        function logout() {
+            document.getElementById('logout-form').submit();
+        }
+    </script>
+    <div class="content">
+        {% block content %}
+        {% endblock content%}
+    </div>
+</body>
+</html>

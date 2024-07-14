@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="conteiner">
+            <h1>Ingreso</h1>
+            <h2>Accede a tu cuenta</h2>
+
+            <div>
+                <style>
+                    h5 {
+                        color: blue;
+                    }
+                </style>
+                {% if form.errors %}
+                <h5>Nombre de Usuario o Contraseña Incorrectos.</h5>
+                {% endif %}
+
+                {% if next %}
+                {% if user.is_authenticated %}
+                <h5>Tu cuenta no tiene acceso a esta página, si tienes otra cuenta por favor ingresa tus credenciales.</h5>
+                {% else %}
+                <h5>Por favor, ingresar credenciales para ver la página.</h5>
+                {% endif %}
+                {% endif %}
+            </div>
+
+            <form action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Nombre Usuario" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <button style="color:white" type="submit" class="signup-btn">Ingresar</button>
+            </form>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Recuerdame
+            </label>
+
+            <div class="help-text" align="center">
+                <p>No tienes cuenta?, entonces <a href="{% url 'registro' %}">Registrate</a></p>
+
+                <button class="principal" onclick="redirectToMain()">Volver</button>
+            </div>
+            
+            <script>
+                function redirectToMain() {
+                    window.location.href = "{% url 'registro' %}";
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% extends 'navbar.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+{% block extrahead %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/inicio.css' %}">
+    <link rel="stylesheet" href="{% static '/css/contenido.css' %}">
+
+</head>
+{% endblock extrahead%}
+<body>
+    {% block content %}
+    <div class="content">
+        <h1>Nuestro Audiovisuales</h1>
+        <br>
+        <div class="imagenes">
+            {% for pro in multimedia %}
+            <a class="sobre" href="{% url 'multimedia' pro.id %}">
+                <figure>
+                    <img width=0px height=220px src="{{ pro.Imagen.url }}" alt="movie3">
+                    <figcaption>
+                        <p class="movie_title">{{pro.Nombre}}</p>
+                    </figcaption>
+                </figure>
+            </a>
+            {% endfor %}
+        </div>
+        <br><br><br>
+    </div>
+    </div>
+    {% endblock content%}
+</body>
+</html>

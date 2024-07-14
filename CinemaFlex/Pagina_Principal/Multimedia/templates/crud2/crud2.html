@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentarios y Respuestas</title>
+    <link rel="stylesheet" href="{% static 'css/crud3.css' %}">
+
+
+</head>
+<body>
+    <div class="content">
+    <h1>Lista de Comentarios y Respuestas</h1>
+    <table id="tabla">
+        <thead>
+            <tr>
+                <th>Multimedia</th>
+                <th>Comentario</th>
+                <th>Respuestas</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for comentario in comentarios %}
+    <tr>
+        <td>{{ comentario.multimedia.Nombre }}</td>
+        <td>{{ comentario.texto }}</td>
+        <td>
+            <ul>    
+                {% for respuesta in comentario.respuestas.all %}
+                <li>
+                    {{ respuesta.contenido }}
+                    <div class="button-container">
+                        <a href="{% url 'ver_respuesta' respuesta.id %}" class="clase">Ver</a>
+                        <a href="{% url 'update_respuesta' respuesta.id %}" class="clase2">Editar</a>
+                        <a href="{% url 'borrar_respuesta' respuesta.id %}" class="clase3">Borrar</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </td>
+        <td>
+            <div class="btn-group">
+                <a href="{% url 'agregar_respuesta' comentario.id %}" class="back-btn">Agregar Respuesta</a>
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>
+

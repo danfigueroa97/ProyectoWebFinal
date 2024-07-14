@@ -1,0 +1,38 @@
+{% extends 'navbar.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+{% block extrahead %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/mi_lista.css' %}">
+</head>
+{% endblock extrahead %}
+
+<body>
+    {% block content %}
+    <div class="content">
+        <h2>Mi Lista</h2>
+        {% if lista %}
+            <ul>
+                {% for item in lista %}
+                    <li>
+                        <img src="{{ item.multimedia.Imagen.url }}" alt="{{ item.multimedia.Nombre }}">
+                        <h3>{{ item.multimedia.Nombre }}</h3>
+                        <p>{{ item.multimedia.Descripcion }}</p>
+                        <form method="post" action="{% url 'remove_from_list' item.multimedia.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-remove">Eliminar de Mi Lista</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No tienes elementos en tu lista.</p>
+        {% endif %}
+    </div>
+    {% endblock content %}
+</body>
+</html>
